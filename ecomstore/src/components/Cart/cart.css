@@ -1,0 +1,11 @@
+.cart_img {
+  height: 150px;
+  margin-inline-start: 30%;
+}
+.cart_txt{
+  font-size: 15px;
+}
+.des{
+  text-align: justify;
+  width: 70%;
+}
