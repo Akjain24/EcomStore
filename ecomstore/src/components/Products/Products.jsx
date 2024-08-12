@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Loading from "../Loading/Loading";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
@@ -10,11 +11,16 @@ const Products = () => {
   }, []); /*if the dependency is empty it wil run 1 time but if we have passed
     any state then it will run that many state time */
 
-  const getProductsData = async () => {
-    const productsData = await fetch(`https://fakestoreapi.com/products`);
-    let responseProducts = await productsData.json();
-    setProducts(responseProducts);
-  };
+  // const getProductsData = async () => {
+  //   const productsData = await fetch(`https://fakestoreapi.com/products`);
+  //   let responseProducts = await productsData.json();
+  //   setProducts(responseProducts);
+  // };
+
+  const getProductsData = async()=>{
+    const productdata = await axios.get('https://fakestoreapi.com/products')
+    setProducts(productdata.data);
+  }
 
   return (
     <>
